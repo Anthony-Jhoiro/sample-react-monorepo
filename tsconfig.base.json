@@ -18,6 +18,12 @@
       "@home-dashboard/dashboard-content": [
         "dashboard/dashboard-content/src/index.ts"
       ],
+      "@home-dashboard/project-manager/project-manager-content": [
+        "project-manager/project-manager-content/src/index.ts"
+      ],
+      "@home-dashboard/project-manager/project-manager-content/server": [
+        "project-manager/project-manager-content/src/server.ts"
+      ],
       "@home-dashboard/react-components": [
         "shared/ui/react-components/src/index.ts"
       ],

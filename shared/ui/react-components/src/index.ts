@@ -5,3 +5,4 @@ export * from './components/ui/label/label';
 export * from './components/ui/dialog/dialog';
 export * from './components/ui/toggle/toggle';
 export * from './components/ui/toggle-group/toggle-group';
+export * from './components/ui/card/card';
