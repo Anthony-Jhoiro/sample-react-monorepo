@@ -1,0 +1,36 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@home-dashboard/dashboard-content": [
+        "dashboard/dashboard-content/src/index.ts"
+      ],
+      "@home-dashboard/react-components": [
+        "shared/ui/react-components/src/index.ts"
+      ],
+      "@home-dashboard/react-components/*": [
+        "shared/ui/react-components/src/*"
+      ],
+      "@home-dashboard/react-storybook": [
+        "shared/ui/react-storybook/src/index.ts"
+      ],
+      "@home-dashboard/tailwind-config": [
+        "shared/ui/tailwind-config/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

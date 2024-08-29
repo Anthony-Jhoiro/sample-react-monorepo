@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": false,
+  "tailwind": {
+    "config": "shared/ui/tailwind-config/src/index.ts",
+    "css": "shared/ui/tailwind-config/src/index.css",
+    "baseColor": "stone",
+    "cssVariables": true
+  },
+  "aliases": {
+    "components": "@home-dashboard/react-components/components",
+    "utils": "@home-dashboard/react-components/utils.ts"
+  }
+}
