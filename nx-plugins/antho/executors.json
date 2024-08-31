@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "workspace-lint": {
+      "implementation": "./src/executors/workspace-lint/executor",
+      "schema": "./src/executors/workspace-lint/schema.json",
+      "description": "workspace-lint executor"
+    }
+  }
+}

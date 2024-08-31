@@ -1,0 +1,9 @@
+{
+  "name": "project-manager-content",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "project-manager/libs/content/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project project-manager-content --web",
+  "targets": {}
+}

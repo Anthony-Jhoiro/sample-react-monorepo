@@ -16,10 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@home-dashboard/dashboard-content": [
-        "dashboard/dashboard-content/src/index.ts"
+        "dashboard/libs/content/src/index.ts"
       ],
       "@home-dashboard/project-manager/project-manager-content": [
-        "project-manager/project-manager-content/src/index.ts"
+        "project-manager/libs/content/src/index.ts"
       ],
       "@home-dashboard/project-manager/project-manager-content/server": [
         "project-manager/project-manager-content/src/server.ts"
@@ -35,7 +35,8 @@
       ],
       "@home-dashboard/tailwind-config": [
         "shared/ui/tailwind-config/src/index.ts"
-      ]
+      ],
+      "antho-plugin": ["nx-plugins/antho/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
