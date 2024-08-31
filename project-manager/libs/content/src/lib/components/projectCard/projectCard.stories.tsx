@@ -27,8 +27,8 @@ export const Primary: Story = {
           icon: 'person',
           label: 'Me',
           href: 'https://github.com/anthony-jhoiro',
-        }
+        },
       ],
-    }
+    },
   },
 };
