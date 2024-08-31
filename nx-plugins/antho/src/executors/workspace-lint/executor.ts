@@ -1,6 +1,8 @@
 import { WorkspaceLintExecutorSchema } from './schema';
 import { ExecutorContext, ProjectConfiguration } from '@nx/devkit';
 import * as fs from 'node:fs';
+import * as path from 'node:path';
+import { ast, includes } from '@phenomnomnominal/tsquery';
 
 type GlobalRule = {
   run: (context: ExecutorContext) =>
@@ -52,6 +54,37 @@ const projectShouldBeTaggedByScope: ProjectRule = {
       return { status: 'ok', result: 'project is tagged by scope' };
     }
     return { status: 'fail', result: 'project is not tagged by scope' };
+  },
+};
+
+const storybookProjectShouldUseDynamicGlob: ProjectRule = {
+  run: (project) => {
+    if (!project.targets.storybook) {
+      return { status: 'ok', result: 'no storybook' };
+    }
+
+    const mainConfig = fs.readFileSync(
+      path.join(project.root, '.storybook', 'main.ts'),
+      { encoding: 'utf-8' }
+    );
+
+    console.log('STORYBOOK PROJECT', project.name);
+    console.log(mainConfig);
+
+    // methode toute simple
+
+    if (!mainConfig.includes('createGlobPatternsForDependencies')) {
+      return { status: 'fail', result: 'no dynamic glob' };
+    }
+
+    const query =
+      'VariableDeclaration:has(TypeReference Identifier[name=StorybookConfig]) ObjectLiteralExpression PropertyAssignment:has(Identifier[name=stories]) ArrayLiteralExpression CallExpression Identifier[name=createGlobPatternsForDependencies]';
+
+    if (!includes(ast(mainConfig), query)) {
+      return { status: 'fail', result: 'no dynamic glob' };
+    }
+
+    return { status: 'ok', result: 'ook' };
   },
 };
 
@@ -107,7 +140,10 @@ const OnReactStorybookAllDepAreExternals: GlobalRule = {
 
 const rules: Array<GlobalRule> = [OnReactStorybookAllDepAreExternals];
 
-const projectRules: Array<ProjectRule> = [projectShouldBeTaggedByScope];
+const projectRules: Array<ProjectRule> = [
+  projectShouldBeTaggedByScope,
+  storybookProjectShouldUseDynamicGlob,
+];
 
 export default async function runExecutor(
   options: WorkspaceLintExecutorSchema,
