@@ -1,9 +1,12 @@
 {
-  "extends": ["../../../.eslintrc.json", "../../../.eslintrc.base.json"],
+  "extends": ["../../.eslintrc.json", "../../.eslintrc.base.json"],
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["nx-plugins/antho/tsconfig.*?.json"]
+      },
       "rules": {}
     },
     {
@@ -18,12 +21,14 @@
       "files": ["*.json"],
       "parser": "jsonc-eslint-parser",
       "rules": {
-        "@nx/dependency-checks": [
-          "error",
-          {
-            "ignoredFiles": ["{projectRoot}/vite.config.{js,ts,mjs,mts}"]
-          }
-        ]
+        "@nx/dependency-checks": "error"
+      }
+    },
+    {
+      "files": ["./package.json"],
+      "parser": "jsonc-eslint-parser",
+      "rules": {
+        "@nx/nx-plugin-checks": "error"
       }
     }
   ]

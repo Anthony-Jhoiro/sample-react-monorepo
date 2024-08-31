@@ -35,7 +35,8 @@
       ],
       "@home-dashboard/tailwind-config": [
         "shared/ui/tailwind-config/src/index.ts"
-      ]
+      ],
+      "antho-plugin": ["nx-plugins/antho/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

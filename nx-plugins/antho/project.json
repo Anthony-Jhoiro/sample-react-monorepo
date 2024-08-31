@@ -1,0 +1,41 @@
+{
+  "name": "antho-plugin",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "nx-plugins/antho/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/nx-plugins/antho",
+        "main": "nx-plugins/antho/src/index.ts",
+        "tsConfig": "nx-plugins/antho/tsconfig.lib.json",
+        "assets": [
+          "nx-plugins/antho/*.md",
+          {
+            "input": "./nx-plugins/antho/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./nx-plugins/antho/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./nx-plugins/antho",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./nx-plugins/antho",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}
