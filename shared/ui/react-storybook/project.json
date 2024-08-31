@@ -5,8 +5,9 @@
   "projectType": "library",
   "tags": [],
   "implicitDependencies": [
+    "project-manager-content",
     "react-components",
-    "project-manager-content"
+    "dashboard-content"
   ],
   "// targets": "to see all targets run: nx show project react-storybook --web",
   "targets": {}

@@ -17,7 +17,6 @@
     ],
     "sharedGlobals": []
   },
-  "nxCloudAccessToken": "NWVhOGNmNDUtZTk1NC00YjQzLTg5MWItMTE3ODFiYzI2MDA3fHJlYWQtd3JpdGU=",
   "plugins": [
     {
       "plugin": "@nx/remix/plugin",
@@ -64,6 +63,10 @@
         "testStorybookTargetName": "test-storybook",
         "staticStorybookTargetName": "static-storybook"
       }
+    },
+    {
+      "plugin": "./nx-plugins/antho/src/plugins/autotag.ts",
+      "name": "Auto tag projects based on root dir"
     }
   ],
   "generators": {
